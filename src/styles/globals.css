@@ -95,15 +95,15 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.tmp-nav {
+  min-width: fit-content;
+  position: fixed;
+  left: 20px;
+  top: 8px;
 }
 
-.tmp-nav {
-  position: fixed;
-  left: 30px;
-  top: 60px;
+.tmp-nav .btn {
+  margin: 5px;
 }
 
 @media (prefers-color-scheme: dark) {

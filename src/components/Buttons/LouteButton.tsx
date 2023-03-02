@@ -13,6 +13,7 @@ interface ButtonProps {
   variant?: Style["variant"];
   disabled?: boolean;
   path?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 LouteButton.defaultProps = {
@@ -23,23 +24,23 @@ LouteButton.defaultProps = {
 };
 
 export default function LouteButton(props: ButtonProps) {
-  const { label, color, size, disabled, variant, path } = props;
+  const { label, color, size, disabled, variant, path, onClick } = props;
   const router = useRouter();
 
-  const goPath = () => {
+  const goPath = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     if (path) {
       path == "prev" ? router.back() : router.push(path);
     }
   };
 
+  const handleClick = onClick ? onClick : goPath;
+
   return (
     <button
       disabled={disabled}
       className={`btn ${color} ${size} ${variant}`}
-      onClick={(e) => {
-        e.preventDefault();
-        goPath();
-      }}
+      onClick={handleClick}
     >
       {label}
     </button>
