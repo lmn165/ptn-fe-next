@@ -1,41 +1,19 @@
-import { useRouter } from "next/router";
+import LouteButton from "./Buttons/LouteButton";
 
 export default function SimpleRemote() {
-  const router = useRouter();
   return (
     <ul className="tmp-nav">
       <li>
-        <a
-          href=""
-          onClick={(e) => {
-            e.preventDefault();
-            router.push("/");
-          }}
-        >
-          홈 화면
-        </a>
+        <LouteButton label="홈 화면" path="/" />
       </li>
       <li>
-        <a
-          href=""
-          onClick={(e) => {
-            e.preventDefault();
-            router.push("/gallery");
-          }}
-        >
-          갤러리
-        </a>
+        <LouteButton label="갤러리" path="/gallery" />
       </li>
       <li>
-        <a
-          href=""
-          onClick={(e) => {
-            e.preventDefault();
-            router.push("/gallery/1");
-          }}
-        >
-          갤러리 상세
-        </a>
+        <LouteButton label="갤러리 상세" path="/gallery/1" />
+      </li>
+      <li>
+        <LouteButton label="뒤로가기" path="prev" />
       </li>
       {/* 
       <li>
